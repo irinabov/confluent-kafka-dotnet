@@ -24,7 +24,7 @@ jobs:
         run: Install-Module 7Zip4PowerShell -Force -Verbose
       - name: Install Chocolatey Module 
         shell: powershell
-        run: Install-Module Chocolatey4PowerShell -Force -Verbose
+        run: Install-Module Chocolatey -Force -Verbose
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run PowerShell Hello World script
