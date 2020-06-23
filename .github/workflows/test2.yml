@@ -27,7 +27,7 @@ jobs:
         run: Install-Module Chocolatey -Force -Verbose
       - name: Install docFx
         shell: powershell
-        run: cinst docfx -y
+        run: cinst docfx librdkafka -y
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run dotnet dotnet restore -v Minimal
