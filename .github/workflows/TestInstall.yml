@@ -29,7 +29,7 @@ jobs:
         shell: powershell
         run: cinst docfx -y
       - name: Update PATH
-        run: echo "::add-path::$(PROGRAMFILES)\dotnet\
+        run: echo "::add-path::$(PROGRAMFILES)\dotnet\"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Install librdkafka.redist
