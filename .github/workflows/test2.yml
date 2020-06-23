@@ -33,4 +33,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run dotnet dotnet restore -v Minimal
-        run: dotnet restore -v Minimal
+        run: Install-Package librdkafka.redist -Version 1.4.2
+        #run: dotnet restore -v Minimal
