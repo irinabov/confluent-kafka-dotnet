@@ -30,8 +30,5 @@ jobs:
         run: cinst docfx -y
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Run PowerShell Hello World script
-        run: Write-Output 'Hello World!'
-      - name: Run a multi-line PowerShell script
-        run: |
-          $psversiontable;
+      - name: Run dotnet dotnet restore -v Minimal
+        run: dotnet restore -v Minimal
