@@ -29,7 +29,7 @@ jobs:
         shell: powershell
         run: cinst docfx -y
       - name: Install librdkafka.redist
-        run: Install-Package librdkafka.redist -Version 1.4.2
+        run: Install-Package librdkafka.redist
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run dotnet restore -v Minimal
