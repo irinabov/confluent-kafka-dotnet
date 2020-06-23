@@ -19,11 +19,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: Run PowerShell Hello World script
-      run: Write-Output 'Hello World!'
-    - name: Run a multi-line PowerShell script
-      run: |
-        $psversiontable;
-        # Get-Process;
+      - name: Install 7Zip PowerShell Module
+        shell: powershell
+        run: Install-Module 7Zip4PowerShell -Force -Verbose
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run PowerShell Hello World script
+        run: Write-Output 'Hello World!'
+      - name: Run a multi-line PowerShell script
+        run: |
+          $psversiontable;
+          # Get-Process;
