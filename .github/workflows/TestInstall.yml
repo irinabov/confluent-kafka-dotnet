@@ -27,7 +27,7 @@ jobs:
         run: Install-Module Chocolatey -Force -Verbose
       - name: Install docFx
         shell: powershell
-        run: cinst docfx Confluent.Kafka -y
+        run: cinst docfx -y
       - name: Update PATH
         run: echo "::add-path::%PROGRAMFILES(x86)%\dotnet\"
       - name: Install-Package Confluent.Kafka
