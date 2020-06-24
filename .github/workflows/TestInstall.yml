@@ -42,3 +42,12 @@ jobs:
         run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release
       - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
         run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
+      - name: Run docfx doc/docfx.json
+        run: docfx doc/docfx.json
+      - name: Run 7z a docs.zip doc/_site/*
+        run: 7z a docs.zip doc/_site/*
+
+#test_script:
+# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.Kafka.UnitTests/Confluent.Kafka.UnitTests.csproj
+# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.SchemaRegistry.UnitTests/Confluent.SchemaRegistry.UnitTests.csproj
+# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.SchemaRegistry.Serdes.UnitTests/Confluent.SchemaRegistry.Serdes.UnitTests.csproj
