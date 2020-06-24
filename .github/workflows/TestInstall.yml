@@ -19,6 +19,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Find Confluent.Kafka
+        run: Find-Package -Name Confluent.Kafka
       - name: Install 7Zip PowerShell Module
         shell: powershell
         run: Install-Module 7Zip4PowerShell -Force -Verbose
