@@ -28,8 +28,8 @@ jobs:
       - name: Install docFx
         shell: powershell
         run: cinst docfx -y
-      - name: Install Vcpkg
-        run: Install-Module Vcpkg -Force -Verbose
+      #- name: Install Vcpkg
+      #  run: Install-Module Vcpkg -Force -Verbose
       - name: Install librdkafka
         run: vcpkg install librdkafka
       - name: Update PATH
