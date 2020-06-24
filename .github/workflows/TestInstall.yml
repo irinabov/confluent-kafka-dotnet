@@ -50,9 +50,9 @@ jobs:
           dotnet test -c Release --no-build test/Confluent.SchemaRegistry.Serdes.UnitTests/Confluent.SchemaRegistry.Serdes.UnitTests.csproj;
       - name: List artifacts
         run: |
-          Get-ChildItem -Path ./src/Confluent.Kafka/bin*/Release -Include *.nupkg;
-          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Avro/bin*/Release -Include *.nupkg;
-          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Protobuf/bin*/Release -Include *.nupkg;
-          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Json/bin*/Release -Include *.nupkg;
-          Get-ChildItem -Path ./src/Confluent.SchemaRegistry/bin*/Release -Include *.nupkg;
-          Get-ChildItem -Path ./ -Include doc*.zip;
+          ls ./src/Confluent.Kafka/bin*/Release/*.nupkg;
+          ls ./src/Confluent.SchemaRegistry.Serdes.Avro/bin*/Release/*.nupkg;
+          ls ./src/Confluent.SchemaRegistry.Serdes.Protobuf/bin*/Release/*.nupkg;
+          ls ./src/Confluent.SchemaRegistry.Serdes.Json/bin*/Release/*.nupkg;
+          ls ./src/Confluent.SchemaRegistry/bin*/Release/*.nupkg;
+          ls ./doc*.zip;
