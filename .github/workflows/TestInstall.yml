@@ -34,3 +34,11 @@ jobs:
         run: dotnet build Confluent.Kafka.sln -c Release
       - name: Run dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
         run: dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
+      - name: Run dotnet pack src/Confluent.SchemaRegistry/Confluent.SchemaRegistry.csproj -c Release
+        run: dotnet pack src/Confluent.SchemaRegistry/Confluent.SchemaRegistry.csproj -c Release
+      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Avro/Confluent.SchemaRegistry.Serdes.Avro.csproj -c Release
+        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Avro/Confluent.SchemaRegistry.Serdes.Avro.csproj -c Release
+      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release
+        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release
+      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
+        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
