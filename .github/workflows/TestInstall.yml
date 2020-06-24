@@ -46,8 +46,8 @@ jobs:
         run: docfx doc/docfx.json
       - name: Run 7z a docs.zip doc/_site/*
         run: 7z a docs.zip doc/_site/*
-
-#test_script:
-# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.Kafka.UnitTests/Confluent.Kafka.UnitTests.csproj
-# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.SchemaRegistry.UnitTests/Confluent.SchemaRegistry.UnitTests.csproj
-# - dotnet test -c %CONFIGURATION% --no-build test/Confluent.SchemaRegistry.Serdes.UnitTests/Confluent.SchemaRegistry.Serdes.UnitTests.csproj
+      - name: Run tests
+        run: |
+          dotnet test -c Release --no-build test/Confluent.Kafka.UnitTests/Confluent.Kafka.UnitTests.csproj;
+          dotnet test -c Release --no-build test/Confluent.SchemaRegistry.UnitTests/Confluent.SchemaRegistry.UnitTests.csproj;
+          dotnet test -c Release --no-build test/Confluent.SchemaRegistry.Serdes.UnitTests/Confluent.SchemaRegistry.Serdes.UnitTests.csproj;
