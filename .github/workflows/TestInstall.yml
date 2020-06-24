@@ -19,12 +19,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      #- name: Install 7Zip PowerShell Module
-      #  shell: powershell
-      #  run: Install-Module 7Zip4PowerShell -Force -Verbose
-      #- name: Install Chocolatey Module 
-      #  shell: powershell
-      #  run: Install-Module Chocolatey -Force -Verbose
       - name: Install docFx
         shell: powershell
         run: cinst docfx -y
@@ -38,3 +32,5 @@ jobs:
         run: dotnet restore -v Minimal
       - name: Run dotnet build Confluent.Kafka.sln -c Release
         run: dotnet build Confluent.Kafka.sln -c Release
+      - name: Run dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
+        run: dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
