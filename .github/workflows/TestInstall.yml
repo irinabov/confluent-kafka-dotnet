@@ -19,26 +19,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Install 7Zip PowerShell Module
-        shell: powershell
-        run: Install-Module 7Zip4PowerShell -Force -Verbose
-      - name: Install Chocolatey Module 
-        shell: powershell
-        run: Install-Module Chocolatey -Force -Verbose
+      #- name: Install 7Zip PowerShell Module
+      #  shell: powershell
+      #  run: Install-Module 7Zip4PowerShell -Force -Verbose
+      #- name: Install Chocolatey Module 
+      #  shell: powershell
+      #  run: Install-Module Chocolatey -Force -Verbose
       - name: Install docFx
         shell: powershell
         run: cinst docfx -y
-      #- name: Install Vcpkg
-      #  run: Install-Module Vcpkg -Force -Verbose
       - name: Install librdkafka
         run: vcpkg install librdkafka
       - name: Update PATH
         run: echo "::add-path::%PROGRAMFILES(x86)%\dotnet\"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      #- name: Install Confluent.Kafka
-      #  run: dotnet add package Confluent.Kafka
       - name: Run dotnet restore -v Minimal
         run: dotnet restore -v Minimal
-      - name: Run dotnet build Confluent.Kafka.sln -c %CONFIGURATION%
-        run: dotnet build Confluent.Kafka.sln -c %CONFIGURATION%
+      - name: Run dotnet build Confluent.Kafka.sln -c Release
+        run: dotnet build Confluent.Kafka.sln -c Release
