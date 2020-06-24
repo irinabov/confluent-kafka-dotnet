@@ -32,16 +32,13 @@ jobs:
         run: dotnet restore -v Minimal
       - name: Run dotnet build Confluent.Kafka.sln -c Release
         run: dotnet build Confluent.Kafka.sln -c Release
-      - name: Run dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
-        run: dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release
-      - name: Run dotnet pack src/Confluent.SchemaRegistry/Confluent.SchemaRegistry.csproj -c Release
-        run: dotnet pack src/Confluent.SchemaRegistry/Confluent.SchemaRegistry.csproj -c Release
-      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Avro/Confluent.SchemaRegistry.Serdes.Avro.csproj -c Release
-        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Avro/Confluent.SchemaRegistry.Serdes.Avro.csproj -c Release
-      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release
-        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release
-      - name: Run dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
-        run: dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release
+      - name: Run dotnet pack
+        run: | 
+          dotnet pack src/Confluent.Kafka/Confluent.Kafka.csproj -c Release;
+          dotnet pack src/Confluent.SchemaRegistry/Confluent.SchemaRegistry.csproj -c Release;
+          dotnet pack src/Confluent.SchemaRegistry.Serdes.Avro/Confluent.SchemaRegistry.Serdes.Avro.csproj -c Release;
+          dotnet pack src/Confluent.SchemaRegistry.Serdes.Protobuf/Confluent.SchemaRegistry.Serdes.Protobuf.csproj -c Release;
+          dotnet pack src/Confluent.SchemaRegistry.Serdes.Json/Confluent.SchemaRegistry.Serdes.Json.csproj -c Release;
       - name: Run docfx doc/docfx.json
         run: docfx doc/docfx.json
       - name: Run 7z a docs.zip doc/_site/*
@@ -51,3 +48,11 @@ jobs:
           dotnet test -c Release --no-build test/Confluent.Kafka.UnitTests/Confluent.Kafka.UnitTests.csproj;
           dotnet test -c Release --no-build test/Confluent.SchemaRegistry.UnitTests/Confluent.SchemaRegistry.UnitTests.csproj;
           dotnet test -c Release --no-build test/Confluent.SchemaRegistry.Serdes.UnitTests/Confluent.SchemaRegistry.Serdes.UnitTests.csproj;
+      - name: List artifacts
+        run: |
+          Get-ChildItem -Path ./src/Confluent.Kafka/bin*/Release -Include *.nupkg;
+          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Avro/bin*/Release -Include *.nupkg;
+          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Protobuf/bin*/Release -Include *.nupkg;
+          Get-ChildItem -Path ./src/Confluent.SchemaRegistry.Serdes.Json/bin*/Release -Include *.nupkg;
+          Get-ChildItem -Path ./src/Confluent.SchemaRegistry/bin*/Release -Include *.nupkg;
+          Get-ChildItem -Path ./ -Include doc*.zip;
