@@ -25,7 +25,7 @@ jobs:
       - name: Install librdkafka
         run: vcpkg install librdkafka
       - name: Update PATH
-        run: echo "::add-path::%PROGRAMFILES(x86)%\dotnet\"
+        run: echo "::add-path::%PROGRAMFILES%\dotnet\"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run dotnet restore -v Minimal
