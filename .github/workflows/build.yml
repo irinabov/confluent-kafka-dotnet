@@ -59,10 +59,8 @@ jobs:
       - name: Upload docs.zip file
         uses: actions/upload-artifact@v2
         with:
-          name: my-doc-zip
           path: docs.zip
       - name: Upload *.nupkg
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifacts
           path: src/**/Release/*
