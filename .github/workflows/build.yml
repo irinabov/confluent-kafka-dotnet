@@ -56,8 +56,13 @@ jobs:
           ls ./src/Confluent.SchemaRegistry.Serdes.Json/bin*/Release/*.nupkg;
           ls ./src/Confluent.SchemaRegistry/bin*/Release/*.nupkg;
           ls ./doc*.zip;
+      - name: Upload doc*.zip file
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-doc-zip
+          path: doc*.zip
       - name: Upload *.nupkg 
         uses: actions/upload-artifact@v1
         with:
-          name: my-artifact
-          path: .src/**/*.nupkg
+          name: my-artifacts
+          path: src/*/bin*/Release/*.nupkg
